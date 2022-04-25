@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# delete logs from previous pass
+find "$(dirname "$0")" -name "*.log" -delete
+
 # include voice generator script
 . "$(dirname "$0")/voice-gen.sh"
 
