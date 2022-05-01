@@ -154,7 +154,7 @@ SYSTEM;lowbatt.wav;bateria do rádio fraca
 SYSTEM;thralert.wav;atenção,acelerador não está no mínimo
 SYSTEM;swalert.wav;atenção, certifique-se que os interruptores estão na posição certa
 SYSTEM;eebad.wav;eeprom corrompida
-SOUNDS/enSYSTEM;hello.wav;Bem vindo ao édge tiécs
+SYSTEM;hello.wav;Bem vindo ao édge tiécs
 SYSTEM;error.wav;erro
 SYSTEM;midtrim.wav;trim centrado
 SYSTEM;maxtrim.wav;trim no máximo
