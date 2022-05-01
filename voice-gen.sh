@@ -5,6 +5,7 @@ generate_lang () {
   # $2: voice name
   # $3: language directory
 
+  HEADER_DONE=0
   ROOT=SOUNDS
   DELAY=3
   CSV_FILE=$1
@@ -20,7 +21,7 @@ generate_lang () {
   while read -r line
   do
     # consume header line
-    if [ -z "$HEADER_DONE" ]; then
+    if [ "$HEADER_DONE" -ne 1 ]; then
         HEADER_DONE=1
         continue
     fi
