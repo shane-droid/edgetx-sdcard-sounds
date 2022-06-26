@@ -59,6 +59,50 @@ dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI
 
 After you have installed SPX, you will also need to [create a Microsoft Azure account](https://azure.microsoft.com/en-us/services/cognitive-services/speech-to-text/) if you don't have one already. There are both free and paid options, but the free one is sufficient for this purpose - it is just rate limited. After you have done that, [follow the quick start guide](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/spx-basics) to configure the required region and subscription keys.
 
+## Windows
+- download the repo.
+    https://github.com/EdgeTX/edgetx-sdcard-sounds/archive/refs/heads/main.zip
+- unzip the folder
+- open the folder in windows explorer
+- in the folder shift + right click: open powershell here. [if no option then you may have to install powershell]
+- install microsoft cognitive services speach
+    - https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/spx-basics?tabs=windowsinstall%2Cpowershell
+    ```dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI```
+    ```dotnet tool update --global Microsoft.CognitiveServices.Speech.CLI```
+- sign up to azure: credit card required for verification: https://portal.azure.com
+- create a speech resource on azure: use free tier
+    - choose the following options on setup pages:
+    - network: allow all, including internet
+    - identity: status:off, leave user assignged managed identies blank
+    - tags: leave blank
+    -review and create
+    -create
+    -click 'go to resource'
+    -'manage keys'
+    - note down your key and endpoint.
+- in powershell run these commands and subsitiute subscription key [for your key] and region [your azure region]
+    ``` spx --% config @key
+        spx --% config @region ```
+        ```
+        New-Item -Path Env:\COGNITIVE_SERVICE_API_KEY -Value 'YOUR KEY'
+        New-Item -Path Env:\SERVICE_REGION -Value 'YOUR REGION
+        ```
+- install python on your system
+    - to check if python is installed:
+    
+    ```py --version``` 
+    -python can be installed from here.
+    - https://www.python.org/downloads/
+-install python package
+    -```pip install azure-cognitiveservices-speech```
+- run the app
+    - the help file ```python ./voice-gen.py --help```
+    - ```python ./voice-gen.py ./voices/en-GB.csv libby ./test```
+    
+    
+    
+
+
 ## Alternatives
 - Mike has created a python script that can be used to generate the audio using Googles Text to Speech service - https://github.com/xsnoopy/edgetx-sdcard-sounds
 - The OpenTX Speaker voice generator (Windows only) uses the built in text to speech engine of Microsoft Windows, andcan be used to generate new audio also. https://www.open-tx.org/2014/03/15/opentx-speaker
